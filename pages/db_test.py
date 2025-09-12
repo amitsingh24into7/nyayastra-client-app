@@ -54,7 +54,7 @@ def test_fetch_api_key(service="nyay-pulse"):
         st.error(f"❌ Failed to fetch API key: {e}")
         return False
 
-def test_llm(service="nyay-pulse"):
+def test_llm(service="nyay-client"):
     try:
         llm = get_llm(service)
         # Try a simple call
@@ -74,11 +74,11 @@ def show():
 
     if db_ok:
         st.markdown("### 2. Testing API Key Fetch...")
-        key_ok = test_fetch_api_key("nyay-pulse")
+        key_ok = test_fetch_api_key("nyay-client")
 
         if key_ok:
             st.markdown("### 3. Testing LLM Initialization...")
-            llm_ok = test_llm("nyay-pulse")
+            llm_ok = test_llm("nyay-client")
         else:
             llm_ok = False
     else:

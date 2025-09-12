@@ -6,7 +6,7 @@ load_dotenv()
 
 # --- SET PAGE CONFIG ---
 st.set_page_config(
-    page_title="Nyayastra Pulse",
+    page_title="Nyayastra Lite",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -62,7 +62,7 @@ st.markdown(
 
 # --- LOGIN SCREEN ---
 if not st.session_state.logged_in:
-    st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>⚖️ Nyayastra Pulse</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>⚖️ Nyayastra Lite</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; font-size: 1.2rem;'>India's AI-Powered Legal Assistant</p>", unsafe_allow_html=True)
     st.divider()
 
@@ -88,7 +88,7 @@ if not st.session_state.logged_in:
                 font-size: 14px;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             ">
-                📝 Register as a Lawyer
+                📝 New Client Registration
             </div>
         </a>
     </div>
@@ -119,8 +119,6 @@ try:
         from pages.lawyers import show
     elif selected == "case_tracking":
         from pages.case_tracking import show
-    elif selected == "document_gen":
-        from pages.document_gen import show
     else:
         from pages.dashboard import show  # fallback
 

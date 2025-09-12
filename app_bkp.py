@@ -8,7 +8,7 @@ GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 
 # --- SET PAGE CONFIG ---
 st.set_page_config(
-    page_title="Nyastra Pulse",
+    page_title="Nyastra Lite",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -116,7 +116,7 @@ st.markdown(
 # --- SHOW LOGIN OR APP ---
 if not st.session_state.logged_in:
     # --- LOGIN SCREEN ---
-    st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>⚖️ Nyastra Pulse</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>⚖️ Nyastra Client</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; font-size: 1.2rem;'>India's AI-Powered Legal Assistant</p>", unsafe_allow_html=True)
     st.divider()
 
@@ -184,7 +184,7 @@ else:
 
     # --- DASHBOARD ---
     if selected == "dashboard":
-        st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>Nyastra Pulse</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; color: #1e3a8a;'>Nyastra Lite</h1>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; color: #2563EB;'>Your Legal Rights, Simplified</h3>", unsafe_allow_html=True)
         st.markdown("---")
 

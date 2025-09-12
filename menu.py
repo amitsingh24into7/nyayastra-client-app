@@ -9,8 +9,8 @@ def sidebar_menu():
         "AI Assistant": "ai",
         "Document AI": "documents",
         "Lawyer Connect": "lawyers",
-        "Case Tracking": "case_tracking",
-        "Legal Drafting": "document_gen"
+        "Case Tracking": "case_tracking"
+        
         
     }
     key_to_label = {v: k for k, v in label_to_key.items()}
@@ -25,7 +25,7 @@ def sidebar_menu():
             """
             <div style='padding: 1rem 0; text-align: center;'>
                 <h2 style='margin: 0; color: #1E398F; font-size: 1.8rem;'>Nyastra</h2>
-                <p style='margin: 0; color: #2563EB; font-size: 0.9rem; font-weight: 600;'>Pulse</p>
+                <p style='margin: 0; color: #2563EB; font-size: 0.9rem; font-weight: 600;'>Lite</p>
                 <p style='margin: 0.5rem 0 0 0; color: #64748B; font-size: 0.85rem;'>Your Legal Rights, Simplified</p>
             </div>
             """,
@@ -58,7 +58,7 @@ def sidebar_menu():
         selected_label = option_menu(
             menu_title=None,
             options=list(label_to_key.keys()),  # Display labels
-            icons=["house", "robot", "file-earmark-text", "people", "search"],
+            icons=["house", "robot", "file-earmark-text", "people"],
             menu_icon="cast",
             default_index=list(label_to_key.values()).index(current_page),
             styles={

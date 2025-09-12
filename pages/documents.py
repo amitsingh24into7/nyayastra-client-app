@@ -37,7 +37,7 @@ def show():
             if st.button("🔍 Generate AI Summary"):
                 with st.spinner("Analyzing document..."):
                     try:
-                        llm = get_llm('nyay-pulse')
+                        llm = get_llm('nyay-client')
                         prompt = f"""
                         Summarize this legal document in simple English and Hindi.
                         Highlight: parties, court, dates, key facts, legal issues.
@@ -64,7 +64,7 @@ def show():
             st.session_state.doc_qa.append({"role": "user", "content": q})
             st.chat_message("user").write(q)
             try:
-                llm = get_llm('nyay-pulse')
+                llm = get_llm('nyay-client')
                 prompt = f"""
                 Based on this legal document:
                 {st.session_state.doc_text[:5000]}
