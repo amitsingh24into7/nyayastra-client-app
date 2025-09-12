@@ -45,12 +45,12 @@ COPY --from=build /usr/local/bin /usr/local/bin
 COPY --from=build /app /app
 
 # Expose Streamlit port
-EXPOSE 8502
+EXPOSE 8503
 
 # Start Streamlit app
 CMD ["streamlit", "run", "app.py", \
      "--server.enableCORS=false", \
      "--server.enableXsrfProtection=false", \
      "--server.headless=true", \
-     "--server.port=8502", \
+     "--server.port=8503", \
      "--server.address=0.0.0.0"]
