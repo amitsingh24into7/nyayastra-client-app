@@ -21,12 +21,12 @@ spec:
         ports:
         - containerPort: 8503
         resources:
-        requests:
-          cpu: "500m"
-          memory: "512Mi"
-        limits:
-          cpu: "1"
-          memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
 ---
 apiVersion: v1
 kind: Service
