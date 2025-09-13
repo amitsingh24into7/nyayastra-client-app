@@ -119,6 +119,8 @@ try:
         from pages.lawyers import show
     elif selected == "case_tracking":
         from pages.case_tracking import show
+    elif selected == "doorstep_rental":
+        from pages.doorstep_rental import show
     else:
         from pages.dashboard import show  # fallback
 

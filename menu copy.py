@@ -9,16 +9,18 @@ def sidebar_menu():
         "AI Assistant": "ai",
         "Document AI": "documents",
         "Lawyer Connect": "lawyers",
-        "Case Tracking": "case_tracking",
-        "Doorstep Rental": "doorstep_rental"  # 👈 For testing
+        "Case Tracking": "case_tracking"
+        
+        
     }
     key_to_label = {v: k for k, v in label_to_key.items()}
 
-    # Get current page
+    # Get current page and its display label
     current_page = st.session_state.get("current_page", "dashboard")
+    current_label = key_to_label.get(current_page, "🏠 Home")
 
     with st.sidebar:
-        # --- Header ---
+        # --- Header with Logo & Tagline ---
         st.markdown(
             """
             <div style='padding: 1rem 0; text-align: center;'>
@@ -55,13 +57,21 @@ def sidebar_menu():
         # --- Navigation Menu ---
         selected_label = option_menu(
             menu_title=None,
-            options=list(label_to_key.keys()),
-            icons=["house", "robot", "file-earmark-text", "people", "search"],
+            options=list(label_to_key.keys()),  # Display labels
+            icons=["house", "robot", "file-earmark-text", "people"],
             menu_icon="cast",
             default_index=list(label_to_key.values()).index(current_page),
             styles={
-                "container": {"padding": "0.25rem 0", "background-color": "white"},
-                "icon": {"color": "#2563EB", "font-size": "18px", "width": "25px", "text-align": "center"},
+                "container": {
+                    "padding": "0.25rem 0",
+                    "background-color": "white"
+                },
+                "icon": {
+                    "color": "#2563EB",
+                    "font-size": "18px",
+                    "width": "25px",
+                    "text-align": "center"
+                },
                 "nav-link": {
                     "font-size": "16px",
                     "text-align": "left",
@@ -78,10 +88,10 @@ def sidebar_menu():
                     "font-weight": "600"
                 },
             },
-            key=f"nav_menu_{current_page}"  # 🔑 Critical: Unique key per page
+            key="main_nav_menu"  
         )
 
-        # Convert label back to key
+        # Convert display label back to internal key
         selected_key = label_to_key.get(selected_label)
 
         st.markdown("<hr style='margin: 1rem 0; border-color: #E2E8F0;'>", unsafe_allow_html=True)
@@ -91,7 +101,7 @@ def sidebar_menu():
             from app import logout
             logout()
 
-        # --- Update session state if selection changed ---
+        # --- Update current_page if changed ---
         if selected_key and selected_key != current_page:
             st.session_state.current_page = selected_key
             st.rerun()
